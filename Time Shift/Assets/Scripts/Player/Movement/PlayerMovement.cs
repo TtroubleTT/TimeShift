@@ -188,12 +188,12 @@ public class PlayerMovement : MonoBehaviour
     }
     
     // New Input system actions below
-    public void OnMove(InputAction.CallbackContext context)
+    private void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void OnJump(InputAction.CallbackContext context)
     {
         if (!context.started)
             return;
@@ -205,12 +205,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnSprint(InputAction.CallbackContext context)
+    private void OnSprint(InputAction.CallbackContext context)
     {
         _shouldSprint = context.action.triggered;
     }
 
-    public void OnCrouch(InputAction.CallbackContext context)
+    private void OnCrouch(InputAction.CallbackContext context)
     {
         Vector3 localScale = bodyTrans.localScale;
         _shouldCrouch = context.action.triggered;

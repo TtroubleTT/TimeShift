@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "TimeShift",
+                    "type": "Button",
+                    "id": "0d1cc719-5786-4849-aae0-6cf44f03ea90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PauseMenu",
                     "type": "Button",
                     "id": "f50801dc-fe65-4143-9243-8108114b1e1a",
@@ -234,6 +243,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b10bc6b-be56-4417-8dce-806852b954b7",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "TimeShift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
