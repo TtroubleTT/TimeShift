@@ -388,10 +388,14 @@ MonoBehaviour:
     m_ActionId: 4a72db5a-c979-44d3-8cb0-fd9af46493c9
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f50801dc-fe65-4143-9243-8108114b1e1a
+    m_ActionName: Player/PauseMenu[/Keyboard/tab,/XInputControllerWindows/select,/XInputControllerWindows1/select]
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OpenMenu
+      - m_Target: {fileID: 9038916875976098009}
+        m_TargetAssemblyTypeName: TimeShift, Assembly-CSharp
+        m_MethodName: OnTimeShift
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -401,8 +405,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: f50801dc-fe65-4143-9243-8108114b1e1a
-    m_ActionName: Player/PauseMenu[/Keyboard/tab,/XInputControllerWindows/select,/XInputControllerWindows1/select]
+    m_ActionId: 0d1cc719-5786-4849-aae0-6cf44f03ea90
+    m_ActionName: Player/TimeShift[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -450,11 +454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b48ea2e00ad3147b68200afec1aa85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  past: {fileID: 0}
   present: {fileID: 0}
-  volume: {fileID: 0}
-  darkScreen: {fileID: 0}
-  transitionTime: 0
+  future: {fileID: 0}
+  timeShiftEffect: {fileID: 0}
+  transitionTime: 0.2
+  shiftCooldown: 0.6
+  futureEffect: {fileID: 0}
 --- !u!1 &7690618335555232357
 GameObject:
   m_ObjectHideFlags: 0

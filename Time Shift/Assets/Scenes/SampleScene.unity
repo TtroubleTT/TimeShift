@@ -557,17 +557,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1255676111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-  m_PrefabInstance: {fileID: 1517688618}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b48ea2e00ad3147b68200afec1aa85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1371356420
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,50 +637,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
-      value: 0d1cc719-5786-4849-aae0-6cf44f03ea90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
-      value: Player/TimeShift[/Mouse/rightButton]
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1255676111}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnTimeShift
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TimeShift, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547917619688605187, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7078547138049802832, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -708,14 +653,6 @@ PrefabInstance:
       propertyPath: futureEffect
       value: 
       objectReference: {fileID: 592247698}
-    - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: shiftCooldown
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: transitionTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
       propertyPath: timeShiftEffect
       value: 
