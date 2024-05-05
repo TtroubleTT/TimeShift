@@ -33,6 +33,10 @@ public class Drag : MonoBehaviour
             if (hitObj && hitInfo.transform.gameObject.CompareTag("Draggable"))
             {
                 _currentDrag = hitInfo.transform.gameObject;
+                if (_currentDrag.TryGetComponent(out LinkedObject linkedObject))
+                {
+                    linkedObject.PositionHasUpdated();
+                }
             }
 
             return;
