@@ -6,7 +6,6 @@ using UnityEngine;
 public class LinkedObject : MonoBehaviour
 {
     // Info: Put this script on present objects that you want to be able to manipulate the place of future objects
-    [Header("References")]
     [SerializeField] private GameObject linkedFutureObj;
     private TimeShift timeShift;
     private bool _positionUpdated = false;
