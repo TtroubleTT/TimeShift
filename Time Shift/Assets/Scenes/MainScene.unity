@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &22079334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 975930779471585110, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
+  m_PrefabInstance: {fileID: 1517688618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c7f6c9b8764244db33540bdd5e709f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &174164125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2010,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
+      propertyPath: drag
+      value: 
+      objectReference: {fileID: 22079334}
+    - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
       propertyPath: future
       value: 
       objectReference: {fileID: 1371356420}
@@ -2701,7 +2716,7 @@ GameObject:
   - component: {fileID: 2143465588}
   m_Layer: 3
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,6 +15,11 @@ public class Drag : MonoBehaviour
     {
         return _currentDrag;
     }
+
+    public void StopDragging()
+    {
+        _currentDrag = null;
+    }
     
     public void OnDrag(InputAction.CallbackContext context)
     {
