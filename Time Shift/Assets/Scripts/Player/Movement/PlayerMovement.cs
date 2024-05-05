@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkSpeed = 12f;
     [SerializeField] private float sprintSpeed = 20f;
     [SerializeField] private float crouchSpeed = 5f;
+    [SerializeField] private float dragSpeed = 10f;
     private float _currentSpeed;
 
     [Header("Ground Check")]
@@ -55,9 +56,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Walking,
         Sprinting,
-        Dashing,
-        WallRunning,
         Crouching,
+        Dragging,
         Air,
         Falling,
     }
@@ -113,6 +113,12 @@ public class PlayerMovement : MonoBehaviour
         {
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
+        }
+        else if (drag.GetCurrentDrag() is not null)
+        {
+            movementState = MovementState.Dragging;
+            _currentSpeed = dragSpeed;
+
         }
         else if (_isGrounded && _shouldSprint)
         {
@@ -206,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         if (!context.started)
             return;
         
-        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching)
+        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching && movementState != MovementState.Dragging)
         {
             jumped = true;
             DoJump();
@@ -223,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 localScale = bodyTrans.localScale;
         _shouldCrouch = context.action.triggered;
         
-        if (context.started && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
+        if (context.started && !_isCrouching) // If we push down the crouch key and we are crouching we decrease model size
         {
             bodyTrans.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
             _isCrouching = true;
