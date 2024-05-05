@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 6547917619688605187}
   - component: {fileID: 7752804420857858192}
   - component: {fileID: 9038916875976098009}
+  - component: {fileID: 975930779471585110}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -407,6 +408,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0d1cc719-5786-4849-aae0-6cf44f03ea90
     m_ActionName: Player/TimeShift[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 975930779471585110}
+        m_TargetAssemblyTypeName: Drag, Assembly-CSharp
+        m_MethodName: OnDrag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dcf2c83f-f441-4709-a53f-910a7b777605
+    m_ActionName: Player/Drag[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -460,6 +477,24 @@ MonoBehaviour:
   transitionTime: 0.2
   shiftCooldown: 0.6
   futureEffect: {fileID: 0}
+--- !u!114 &975930779471585110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078547138049802832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c7f6c9b8764244db33540bdd5e709f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1701870533431175048}
+  draggableLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  rayCastWidth: 2.5
+  rayCastDistance: 6
 --- !u!1 &7690618335555232357
 GameObject:
   m_ObjectHideFlags: 0

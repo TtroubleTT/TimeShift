@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform bodyTrans;
+    [SerializeField] private Drag drag;
 
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 12f;
@@ -155,6 +156,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = myTransform.right * movementInput.x + myTransform.forward * movementInput.y; // This makes it so its moving locally so rotation is taken into consideration
 
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
+
+        // Logic for if we are dragging an object with us
+        GameObject dragObj = drag.GetCurrentDrag();
+        if (dragObj is not null)
+        {
+            dragObj.transform.position += move * (_currentSpeed * Time.deltaTime);
+        }
     }
 
     private void DoJump() => velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);

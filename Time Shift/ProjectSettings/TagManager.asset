@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Present
   - Future
+  - Draggable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Player
   - Enemy
   - PostProcessing
-  - 
+  - Draggable
   - 
   - 
   - 

@@ -1546,6 +1546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Concrete_Block_1D
       objectReference: {fileID: 0}
+    - target: {fileID: 144632, guid: a642cde6eca7e474099758adfd24d84d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 475444, guid: a642cde6eca7e474099758adfd24d84d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.19
