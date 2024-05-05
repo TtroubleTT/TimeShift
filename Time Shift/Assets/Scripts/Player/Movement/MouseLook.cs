@@ -10,7 +10,8 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private float mouseXSensitivity;
     [SerializeField] private float mouseYSensitivity;
 
-    [Header("References")]
+    [Header("References")] 
+    [SerializeField] private Drag drag;
     [SerializeField] private Transform playerBody;
     private float _xRotation;
     private Vector2 _lookInput = Vector2.zero;
@@ -26,6 +27,10 @@ public class MouseLook : MonoBehaviour
     
     private void Update()
     {
+        // If we are dragging something don't let use look around
+        if (drag.GetCurrentDrag() is not null)
+            return;
+        
         float mouseX = _lookInput.x * mouseXSensitivity * Time.deltaTime;
         float mouseY = _lookInput.y * mouseYSensitivity * Time.deltaTime;
 

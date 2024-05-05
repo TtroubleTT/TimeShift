@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class Drag : MonoBehaviour
 {
     [SerializeField] private Transform cam;
-    [SerializeField] private LayerMask draggableLayer;
     [SerializeField] private float rayCastWidth = 2.5f;
     [SerializeField] private float rayCastDistance = 6f;
 
@@ -25,8 +24,8 @@ public class Drag : MonoBehaviour
             Vector3 camPos = cam.position;
             Quaternion camRot = cam.rotation;
         
-            bool hitObj = Physics.BoxCast(camPos + (-cam.forward * 2.5f), new Vector3(rayCastWidth, rayCastWidth, rayCastWidth), cam.forward, out RaycastHit hitInfo, camRot, rayCastDistance, draggableLayer);
-            if (hitObj)
+            bool hitObj = Physics.BoxCast(camPos + (-cam.forward * 2.5f), new Vector3(rayCastWidth, rayCastWidth, rayCastWidth), cam.forward, out RaycastHit hitInfo, camRot, rayCastDistance);
+            if (hitObj && hitInfo.transform.gameObject.CompareTag("Draggable"))
             {
                 _currentDrag = hitInfo.transform.gameObject;
             }

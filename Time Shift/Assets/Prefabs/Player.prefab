@@ -443,9 +443,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3723788761451890013}
   bodyTrans: {fileID: 6072676004855290357}
+  drag: {fileID: 975930779471585110}
   walkSpeed: 12
   sprintSpeed: 20
   crouchSpeed: 5
+  dragSpeed: 10
   groundCheck: {fileID: 2072781305068561304}
   groundDistance: 0.4
   groundMask:
@@ -494,7 +496,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   rayCastWidth: 2.5
-  rayCastDistance: 6
+  rayCastDistance: 4
 --- !u!1 &7690618335555232357
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseXSensitivity: 50
   mouseYSensitivity: 50
+  drag: {fileID: 975930779471585110}
   playerBody: {fileID: 6072676004855290357}
 --- !u!114 &8666871444717666066
 MonoBehaviour:

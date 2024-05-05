@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 745332327}
   - component: {fileID: 745332326}
   - component: {fileID: 745332325}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: DraggableBox
   m_TagString: Draggable
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c7b8082d29940b24e86b1e2a8425ef96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -603,8 +603,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 975930779471585110, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: rayCastDistance
-      value: 4
+      propertyPath: draggableLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6072676004855290357, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -650,14 +650,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7752804420857858192, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: box
-      value: 
-      objectReference: {fileID: 745332324}
-    - target: {fileID: 7752804420857858192, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-      propertyPath: drag
-      value: 
-      objectReference: {fileID: 1811188610}
     - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
       propertyPath: future
       value: 
@@ -679,17 +671,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
---- !u!114 &1811188610 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 975930779471585110, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
-  m_PrefabInstance: {fileID: 1811188608}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c7f6c9b8764244db33540bdd5e709f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1979390375
 GameObject:
   m_ObjectHideFlags: 0
