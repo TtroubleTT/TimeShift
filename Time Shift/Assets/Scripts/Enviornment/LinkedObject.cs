@@ -6,9 +6,9 @@ using UnityEngine;
 public class LinkedObject : MonoBehaviour
 {
     // Info: Put this script on present objects that you want to be able to manipulate the place of future objects
-    [Header("References")] 
-    [SerializeField] private TimeShift timeShift;
+    [Header("References")]
     [SerializeField] private GameObject linkedFutureObj;
+    private TimeShift timeShift;
     private bool _positionUpdated = false;
 
     public void PositionHasUpdated()
@@ -18,6 +18,7 @@ public class LinkedObject : MonoBehaviour
     
     private void Start()
     {
+        timeShift = GameObject.FindGameObjectWithTag("Player").GetComponent<TimeShift>();
         timeShift.OnTimeShifting += UpdateFutureObjects;
     }
 
