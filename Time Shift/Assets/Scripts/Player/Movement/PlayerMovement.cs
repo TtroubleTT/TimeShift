@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform bodyTrans;
+    [SerializeField] private Drag drag;
 
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 12f;
     [SerializeField] private float sprintSpeed = 20f;
     [SerializeField] private float crouchSpeed = 5f;
+    [SerializeField] private float dragSpeed = 10f;
     private float _currentSpeed;
 
     [Header("Ground Check")]
@@ -54,9 +56,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Walking,
         Sprinting,
-        Dashing,
-        WallRunning,
         Crouching,
+        Dragging,
         Air,
         Falling,
     }
@@ -113,6 +114,12 @@ public class PlayerMovement : MonoBehaviour
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
         }
+        else if (drag.GetCurrentDrag() is not null)
+        {
+            movementState = MovementState.Dragging;
+            _currentSpeed = dragSpeed;
+
+        }
         else if (_isGrounded && _shouldSprint)
         {
             movementState = MovementState.Sprinting;
@@ -155,6 +162,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = myTransform.right * movementInput.x + myTransform.forward * movementInput.y; // This makes it so its moving locally so rotation is taken into consideration
 
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
+
+        // Logic for if we are dragging an object with us
+        GameObject dragObj = drag.GetCurrentDrag();
+        if (dragObj is not null)
+        {
+            dragObj.transform.position += move * (_currentSpeed * Time.deltaTime);
+        }
     }
 
     private void DoJump() => velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -188,34 +202,34 @@ public class PlayerMovement : MonoBehaviour
     }
     
     // New Input system actions below
-    private void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
     }
 
-    private void OnJump(InputAction.CallbackContext context)
+    public void OnJump(InputAction.CallbackContext context)
     {
         if (!context.started)
             return;
         
-        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching)
+        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching && movementState != MovementState.Dragging)
         {
             jumped = true;
             DoJump();
         }
     }
 
-    private void OnSprint(InputAction.CallbackContext context)
+    public void OnSprint(InputAction.CallbackContext context)
     {
         _shouldSprint = context.action.triggered;
     }
 
-    private void OnCrouch(InputAction.CallbackContext context)
+    public void OnCrouch(InputAction.CallbackContext context)
     {
         Vector3 localScale = bodyTrans.localScale;
         _shouldCrouch = context.action.triggered;
         
-        if (context.started && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
+        if (context.started && !_isCrouching) // If we push down the crouch key and we are crouching we decrease model size
         {
             bodyTrans.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
             _isCrouching = true;

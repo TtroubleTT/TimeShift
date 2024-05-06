@@ -8,6 +8,9 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class TimeShift : MonoBehaviour
 {
+    [Header("References")] 
+    [SerializeField] private Drag drag;
+    
     [Header("TimeLines")]
     [SerializeField] private GameObject present;
     [SerializeField] private GameObject future;
@@ -21,6 +24,8 @@ public class TimeShift : MonoBehaviour
     
     [Header("Future Effect")]
     [SerializeField] private PostProcessVolume futureEffect;
+
+    public Action <CurrentTime> OnTimeShifting;
 
     public enum CurrentTime
     {
@@ -40,6 +45,8 @@ public class TimeShift : MonoBehaviour
 
     public void DoTimeShift()
     {
+        drag.StopDragging();
+        
         if (currentTime == CurrentTime.Present)
         {
             ShiftToFuture();
@@ -51,6 +58,7 @@ public class TimeShift : MonoBehaviour
 
         lastUsed = Time.time;
         ChangeTimeLinesEffect();
+        OnTimeShifting?.Invoke(currentTime);
     }
 
     private void Start()
