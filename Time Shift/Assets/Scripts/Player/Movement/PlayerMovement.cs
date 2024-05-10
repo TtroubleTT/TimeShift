@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Physics")]
     [SerializeField] private float gravity = - 9.81f;
-    [HideInInspector] public Vector3 velocity;
+    private Vector3 velocity;
 
     [Header("Jumping")]
     [SerializeField] private float jumpHeight = 3f;
@@ -35,12 +35,12 @@ public class PlayerMovement : MonoBehaviour
     private bool jumped = false;
     
     // For new input system
-    [HideInInspector] public Vector2 movementInput = Vector2.zero;
+    private Vector2 movementInput = Vector2.zero;
     private bool _shouldSprint = false;
     private bool _shouldCrouch = false;
 
     // Movement States
-    [HideInInspector] public MovementState movementState;
+    private MovementState movementState;
 
     public enum MovementState
     {
@@ -62,15 +62,20 @@ public class PlayerMovement : MonoBehaviour
         sprintSpeed += change;
         crouchSpeed += change;
     }
+
+    public float GetCurrentSpeed()
+    {
+        return _currentSpeed;
+    }
+
+    public MovementState GetCurrentMovementState()
+    {
+        return movementState;
+    }
     
     public bool IsGrounded()
     {
         return controller.isGrounded;
-    }
-
-    public float GetSpeed()
-    {
-        return _currentSpeed;
     }
     
     private void Start()
@@ -84,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         MovementStateHandler();
         
         // Resets falling velocity if they are no longer falling
-        // ResetVelocity();
+        ResetVelocity();
         
         // Movement
         MoveInDirection();
@@ -132,6 +137,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void ResetVelocity()
+    {
+        if (IsGrounded() && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+    }
+
     private void MoveInDirection()
     {
         Transform myTransform = transform;
@@ -169,12 +182,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gravity()
     {
-        // If we arent grounded fall
-        if (!IsGrounded())
-        {
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
-        }
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
     
     // New Input system actions below
