@@ -20,15 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dragSpeed = 10f;
     private float _currentSpeed;
 
-    [Header("Ground Check")]
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundDistance = 0.4f;
-    [SerializeField] private LayerMask groundMask;
-    private bool _isGrounded;
-    
     [Header("Physics")]
     [SerializeField] private float gravity = - 9.81f;
-    [HideInInspector] public bool useGravity = true;
     [HideInInspector] public Vector3 velocity;
 
     [Header("Jumping")]
@@ -45,9 +38,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Vector2 movementInput = Vector2.zero;
     private bool _shouldSprint = false;
     private bool _shouldCrouch = false;
-    
-    // For Spell
-    [HideInInspector] public bool spellActive = false;
 
     // Movement States
     [HideInInspector] public MovementState movementState;
@@ -75,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     
     public bool IsGrounded()
     {
-        return _isGrounded;
+        return controller.isGrounded;
     }
 
     public float GetSpeed()
@@ -94,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         MovementStateHandler();
         
         // Resets falling velocity if they are no longer falling
-        ResetVelocity();
+        // ResetVelocity();
         
         // Movement
         MoveInDirection();
@@ -120,12 +110,12 @@ public class PlayerMovement : MonoBehaviour
             _currentSpeed = dragSpeed;
 
         }
-        else if (_isGrounded && _shouldSprint)
+        else if (IsGrounded() && _shouldSprint)
         {
             movementState = MovementState.Sprinting;
             _currentSpeed = sprintSpeed;
         }
-        else if (_isGrounded)
+        else if (IsGrounded())
         {
             movementState = MovementState.Walking;
             _currentSpeed = walkSpeed;
@@ -139,20 +129,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else
                 movementState = MovementState.Air;
-        }
-    }
-
-    private void ResetVelocity()
-    {
-        // Sphere casts to check for ground
-        _isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        // Makes it so we arent changing velocity when on ground not falling
-        if (_isGrounded && velocity.y < 0)
-        {
-            jumped = false;
-            fallTime = 0.0;
-            velocity.y = -2f;
         }
     }
 
@@ -178,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         float heightAbove = controller.height - crouchYScale; // height length between full stand and crouch
         
         // Ray casts upwards an amount to check if you are under and object. If the raycast hits nothing then you are above ground.
-        return Physics.Raycast(transform.position, Vector3.up, heightAbove, groundMask);
+        return Physics.Raycast(transform.position, Vector3.up, heightAbove);
     }
 
     private void ForceStandUp()
@@ -193,8 +169,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Gravity()
     {
-        // If we are currently using gravity this makes us fall
-        if (useGravity)
+        // If we arent grounded fall
+        if (!IsGrounded())
         {
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
@@ -212,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         if (!context.started)
             return;
         
-        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching && movementState != MovementState.Dragging)
+        if ((IsGrounded() || movementState == MovementState.Falling) && movementState != MovementState.Crouching && movementState != MovementState.Dragging)
         {
             jumped = true;
             DoJump();
