@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Drag",
+                    "type": "Button",
+                    "id": "dcf2c83f-f441-4709-a53f-910a7b777605",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PauseMenu",
                     "type": "Button",
                     "id": "f50801dc-fe65-4143-9243-8108114b1e1a",
@@ -254,6 +263,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "TimeShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bacbb20d-9c81-4654-9132-f1982d816cf1",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Drag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
