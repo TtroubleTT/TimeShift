@@ -23,7 +23,6 @@ public class Drag : MonoBehaviour
     
     public void OnDrag(InputAction.CallbackContext context)
     {
-
         if (context.started)
         {
             Vector3 camPos = cam.position;
