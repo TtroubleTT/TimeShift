@@ -8,6 +8,7 @@ TagManager:
   - Present
   - Future
   - Draggable
+  - Button
   layers:
   - Default
   - TransparentFX
