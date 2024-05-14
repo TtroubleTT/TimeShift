@@ -8604,6 +8604,14 @@ PrefabInstance:
       propertyPath: mouseYSensitivity
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 8989006632683948205, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
+      propertyPath: rayCastDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989006632683948205, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
+      propertyPath: interactableLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 9038916875976098009, guid: d4720657b60aaf341a7ba54e03c496d3, type: 3}
       propertyPath: future
       value: 
