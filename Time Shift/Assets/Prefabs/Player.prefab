@@ -515,7 +515,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1701870533431175048}
-  rayCastDistance: 4
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  rayCastDistance: 10
+  interactCooldown: 0.2
 --- !u!1 &7690618335555232357
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,8 +617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d37ce36feaa8e14c98ae13961a29d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseXSensitivity: 50
-  mouseYSensitivity: 50
+  mouseXSensitivity: 40
+  mouseYSensitivity: 40
   drag: {fileID: 975930779471585110}
   playerBody: {fileID: 6072676004855290357}
 --- !u!114 &8666871444717666066
