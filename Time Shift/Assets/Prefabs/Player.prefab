@@ -60,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.8, z: 1.2}
+  m_LocalScale: {x: 1.2, y: 2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6072676004855290357}
@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 7752804420857858192}
   - component: {fileID: 9038916875976098009}
   - component: {fileID: 975930779471585110}
+  - component: {fileID: 8989006632683948205}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -424,6 +425,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dcf2c83f-f441-4709-a53f-910a7b777605
     m_ActionName: Player/Drag[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8989006632683948205}
+        m_TargetAssemblyTypeName: Interact, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: da493a30-c831-4bb5-a1dc-8f99f9ff014d
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -448,19 +465,9 @@ MonoBehaviour:
   sprintSpeed: 20
   crouchSpeed: 5
   dragSpeed: 10
-  groundCheck: {fileID: 2072781305068561304}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
   gravity: -39.24
-  useGravity: 1
-  velocity: {x: 0, y: 0, z: 0}
   jumpHeight: 4
   crouchYScale: 0.5
-  movementInput: {x: 0, y: 0}
-  spellActive: 0
-  movementState: 0
 --- !u!114 &9038916875976098009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b48ea2e00ad3147b68200afec1aa85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drag: {fileID: 975930779471585110}
   present: {fileID: 0}
   future: {fileID: 0}
   timeShiftEffect: {fileID: 0}
@@ -492,10 +500,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1701870533431175048}
-  draggableLayer:
-    serializedVersion: 2
-    m_Bits: 512
   rayCastWidth: 2.5
+  rayCastDistance: 4
+--- !u!114 &8989006632683948205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078547138049802832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f330b6bf19b33b4cbecfef300a5631e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1701870533431175048}
   rayCastDistance: 4
 --- !u!1 &7690618335555232357
 GameObject:
@@ -525,7 +544,7 @@ Transform:
   m_GameObject: {fileID: 7690618335555232357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6699996, z: 0}
+  m_LocalPosition: {x: 0, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

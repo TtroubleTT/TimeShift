@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "da493a30-c831-4bb5-a1dc-8f99f9ff014d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PauseMenu",
                     "type": "Button",
                     "id": "f50801dc-fe65-4143-9243-8108114b1e1a",
@@ -274,6 +283,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d71d0a5c-2208-4204-bbf2-735ee32b1944",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

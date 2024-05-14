@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (fallTime < 0.35 && !jumped)
+            if (fallTime < 0.2 && !jumped)
             {
                 movementState = MovementState.Falling;
                 fallTime += Time.deltaTime;
@@ -142,6 +142,8 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && velocity.y < 0)
         {
             velocity.y = -2f;
+            jumped = false;
+            fallTime = 0.0;
         }
     }
 
