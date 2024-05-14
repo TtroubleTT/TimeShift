@@ -20,6 +20,7 @@ public class Interact : MonoBehaviour
         Vector3 camForward = cam.forward;
 
         bool hitObj = Physics.Raycast(camPos + (-camForward * 2.5f),camForward, out RaycastHit hitInfo, rayCastDistance, interactableLayer);
+        Debug.Log(hitInfo);
         if (hitObj)
         {
             Debug.Log("hit button");
@@ -35,6 +36,8 @@ public class Interact : MonoBehaviour
         if (Time.time - lastUsed < interactCooldown)
             return;
         
+        Debug.Log("Do Interact");
         DoInteract();
+        lastUsed = Time.time;
     }
 }
