@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 9038916875976098009}
   - component: {fileID: 975930779471585110}
   - component: {fileID: 8989006632683948205}
-  - component: {fileID: 9033706113218120978}
+  - component: {fileID: 2250727290262766112}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -521,7 +521,7 @@ MonoBehaviour:
     m_Bits: 512
   rayCastDistance: 10
   interactCooldown: 0.2
---- !u!114 &9033706113218120978
+--- !u!114 &2250727290262766112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -637,8 +637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d37ce36feaa8e14c98ae13961a29d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseXSensitivity: 40
-  mouseYSensitivity: 40
+  mouseXSensitivity: 30
+  mouseYSensitivity: 30
   drag: {fileID: 975930779471585110}
   playerBody: {fileID: 6072676004855290357}
 --- !u!114 &8666871444717666066
