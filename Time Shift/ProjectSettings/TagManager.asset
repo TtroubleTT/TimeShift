@@ -8,6 +8,7 @@ TagManager:
   - Present
   - Future
   - Draggable
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - Enemy
   - PostProcessing
-  - 
+  - Interactable
   - 
   - 
   - 
